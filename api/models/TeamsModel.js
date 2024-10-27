@@ -1,6 +1,6 @@
-import { Schema, model} from "mongoose";
+import { Schema, model } from "mongoose";
 
-const TeamSchema = new ([
+const TeamSchema = new Schema([
     {
         name: { type: String, required: true }
     },
@@ -11,11 +11,11 @@ const TeamSchema = new ([
         leader: { type: Schema.Types.ObjectId, required: true }
     },
     {
-        round: { type: Number, required: true }
+        round: { type: Number, default: 0 }
     },
     {
-        id_scores: { type: Number, required: true }
+        id_scores: []
     }
 ])
 
-export const TeamModel = model("events", TeamSchema);
+export const TeamModel = model("teams", TeamSchema)
