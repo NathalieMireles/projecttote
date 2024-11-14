@@ -23,4 +23,4 @@ const GradesSchema = new ([
         }]
     }
 ])
-export const GradeModel = model("events", GradesSchema);
+export const GradeModel = model("grades", GradesSchema);

@@ -1,6 +1,6 @@
-import { Schema, model} from "mongoose";
+import { Schema, model } from "mongoose"
 
-const UserSchema = new ([
+const UserSchema = new Schema([
     {
         name: { type: String, required: true }
     },
@@ -18,4 +18,4 @@ const UserSchema = new ([
     }
 ])
 
-export const UserModel = model("events", UserSchema);
+export const UserModel = model("users", UserSchema)
