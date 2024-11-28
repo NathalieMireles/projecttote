@@ -15,7 +15,7 @@ export default {
                 email: req.body.email,
                 password: hash,
                 curp: req.body.curp,
-                role: req.body.role,
+            
             }
 
             await UserModel.create(user)
@@ -40,18 +40,18 @@ export default {
 
             if (!user) return res.status(404).json({ "status": "no existes" })
 
-            if (!bcrypt.compare(password, user.password)) return res.status(400).json({ "status": "no existes" })
+            if (!(await bcrypt.compare(password, user.password))) return res.status(400).json({ "status": "no existes" })
 
             // crear tokens
-            // se necesitaba cargar la informacion con una estructura menos compleja en el objeto
+            // se necesitaba cargar la informacion con una estructura menos compleja en el obj
             const load = { id: user.id, email: user.email }
-            // el token se devuelve con la informacion del id y del email del usuario
-            const token = await jwt.sign(load, process.env.private_key)
+            // el token se devuelve con la informacion del id y del email del usuario 
+            const token = await jwt.sign(JSON.stringify(user), process.env.private_key)
             return res.status(200).json({ token })
 
         } catch (err) {
 
-            res.status(500).json({ "status": "un quinienton" })
+            res.status(500).json({ "status": "error" })
             console.log(err)
 
         }

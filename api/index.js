@@ -27,6 +27,6 @@ app.get('/', (req, res) => {
 
 app.post('/user/register', userController.register)
 app.put('/user/update-profile/:id', userController.update)
-app.get('/user/login', userController.login)
+app.post('/user/login', userController.login)
 
 app.listen(4000, () => console.log(" :)"))

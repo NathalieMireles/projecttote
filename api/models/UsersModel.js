@@ -14,7 +14,7 @@ const UserSchema = new Schema([
         curp: { type: String, required: true }
     },
     {
-        role: { type: String, enum: ['judge', 'participant', 'managers'], lowercase: true, required: true }
+        role: { type: String, enum: ['judge', 'participant', 'managers'], lowercase: true, default: 'participant'}
     }
 ])
 
