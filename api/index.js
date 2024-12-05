@@ -4,6 +4,7 @@ import helmet from "helmet"
 import dotenv from "dotenv"
 import mongoose from "mongoose"
 import userController from "./controllers/userController.js"
+import EventsController from "./controllers/EventsController.js"
 
 dotenv.config()
 
@@ -28,5 +29,7 @@ app.get('/', (req, res) => {
 app.post('/user/register', userController.register)
 app.put('/user/update-profile/:id', userController.update)
 app.post('/user/login', userController.login)
+
+app.post('/event/create', EventsController.createEvent)
 
 app.listen(4000, () => console.log(" :)"))

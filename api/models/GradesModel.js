@@ -1,6 +1,6 @@
 import { Schema, model} from "mongoose";
 
-const GradesSchema = new ([
+const GradesSchema = new Schema ([
     {
         id_group: { type: Schema.Types.ObjectId, required: true }
     },
@@ -23,4 +23,4 @@ const GradesSchema = new ([
         }]
     }
 ])
-export const GradeModel = model("grades", GradesSchema);
+export const GradesModel = model("grades", GradesSchema);
