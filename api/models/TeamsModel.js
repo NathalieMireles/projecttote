@@ -8,14 +8,14 @@ const TeamSchema = new Schema([
         id_members: []
     },
     {
-        leader: { type: Schema.Types.ObjectId, required: true }
+        leader: { type: String, required: true } 
     },
     {
         round: { type: Number, default: 0 }
     },
     {
-        id_scores: []
+        id_scores: [] 
     }
-])
+]);
 
-export const TeamModel = model("teams", TeamSchema)
+export const TeamsModel = model("teams", TeamSchema);
